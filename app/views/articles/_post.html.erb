@@ -1,0 +1,10 @@
+<main class="pt4 mw7 center">
+  <article>
+    <%= link_to article_path(article), class: "link dt w-100 bb b--black-10 pb2 mt2 dim blue" do %>
+      <h1 class="f6 f5-ns fw6 lh-title black mv0"><%= article.title %></h1>
+      <time datetime="<%= article.created_at %>"class="f6 fw4 mt2 mb0 black-60">
+        Added <%= time_ago_in_words article.created_at %>
+      </time>
+    <% end %>
+  </article>
+</main>

@@ -1,0 +1,17 @@
+<article class="baskerville pt6 pb5">
+  <header class="avenir tc-l ph3 ph4-ns pt4 pt5-ns">
+    <h1 class="f3 f2-m f-subheadline-l measure lh-title fw1 mt0"><%= @article.title %></h1>
+    <time datetime="<%= @article.created_at %>"class="f5 f4-l db fw1 baskerville mb4">
+      Added <%= time_ago_in_words @article.created_at %>
+    </time>
+  </header>
+  <div class="ph3 ph4-m ph5-l">
+    <div class="measure db center f5 f4-ns lh-copy">
+      <p><%=h raw @article.description %></p>
+      <hr>
+      <h4 class="f6 ttu tracked gray link pointer dim">
+        Source: <%= link_to @article.source_host, @article.url %>
+      </h4>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,15 @@
+<main class="pt6 mw7 center">
+  <% @topics.each do |topic| %>
+    <h4 class="f6 f5-ns fw6 lh-title black mt4"><%= link_to topic.name, topic %></h4>
+    <% topic.posts.each do |post| %>
+    <article>
+      <%= link_to post_path(post), class: "link dt w-100 bb b--black-10 pb2 mt2 dim blue" do %>
+        <h1 class="f6 f5-ns fw6 lh-title black mv0"><%= post.title %></h1>
+        <time datetime="<%= post.created_at %>"class="f6 fw4 mt2 mb0 black-60">
+          Added <%= time_ago_in_words post.created_at %>
+        </time>
+      <% end %>
+    </article>
+    <% end %>
+  <% end %>
+</main>

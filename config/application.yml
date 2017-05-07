@@ -1,0 +1,7 @@
+site_name: "Angelr"
+site_url: "http://angelr.co"
+default_email_from: "hi@angelr.co"
+admin_emails: "ismail@unik.ma"
+sales_emails: "ismail@werunik.com"
+support_emails: "ismail@unik.ma"
+sparkpost: "ee3d9513e1913d0ca816273dce5df1c757bce9f9"

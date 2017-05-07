@@ -1,0 +1,9 @@
+<h1>Healthy Dreamers</h1>
+<% render @articles %>
+
+<% @articles_per_topic.each do |topic, articles| %>
+  <h3><%= topic %></h3>
+  <% articles.each do |article| %>
+    <h2><%= link_to article.title, article %></h2>
+  <% end %>
+<% end %>
