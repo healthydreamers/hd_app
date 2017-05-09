@@ -1,7 +1,5 @@
-<%=link_to like_article_path(@article), method: :put, class: 'btn btn-default btn-sm' do %>
-  <span class="glyphicon glyphicon-chevron-up"></span>
-  like <%= @article.get_upvotes.size %>
-<% end %>
+<%= render partial: "votes/vote", locals: {article: @article} %>
+
 <article class="baskerville pt6 pb5">
   <header class="avenir tc-l ph3 ph4-ns pt4 pt5-ns">
     <h1 class="f3 f2-m f-subheadline-l measure lh-title fw1 mt0"><%= @article.title %></h1>

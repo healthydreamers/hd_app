@@ -5,10 +5,9 @@
       <time datetime="<%= article.created_at %>"class="f6 fw4 mt2 mb0 black-60">
         Added <%= time_ago_in_words article.created_at %>
       </time>
-      <%=link_to like_article_path(article), method: :put, class: 'btn btn-default btn-sm' do %>
-			  <span class="glyphicon glyphicon-chevron-up"></span>
-		 		like <%= article.get_upvotes.size %>
-			<% end %>
+      <div>
+        <%= render partial: "votes/vote", locals: {article: article} %>
+      </div>
     <% end %>
   </article>
 </main>

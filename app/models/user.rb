@@ -23,6 +23,8 @@ class User < ApplicationRecord
   has_many :articles
   validates :first_name, :last_name, presence: true
 
+  acts_as_voter
+
   def name
   	"#{first_name} #{last_name}"
   end
