@@ -15,3 +15,9 @@
     </div>
   </div>
 </article>
+<%= render partial: "comments/comments", locals: {commentable: @article} %>
+<% if user_signed_in? %>
+  <%= render partial: "comments/form", locals: {commentable: @article} %>
+<% else %>
+  You need to <%= link_to "log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to comment.
+<% end %>

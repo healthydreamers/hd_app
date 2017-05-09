@@ -1,0 +1,29 @@
+Topics "/topics"
+	Health				=> Follow
+	Motivation		=> Follow
+	Energy				=> Follow
+	Cancer				=> Follow
+	Fasting				=> Follow
+	...
+
+Topic -> "Fasting"
+	- List followers
+	- Articles / Videos / Podcast / Question
+		- Tags "Editor's Pick", "Must Read", 
+
+
+TODO
+Upvote
+Follow
+Fix redirection to previous page
+
+
+isnpiration
+https://coderwall.com/
+https://www.producthunt.com/topics/books
+https://growthhackers.com/posts?type=All
+https://inbound.org/article/15-proven-methods-for-increasing-organic-traffic-in-2017#comments
+
+
+commments
+https://teamtreehouse.com/community/answers-for-the-exercises

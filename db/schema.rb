@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506164711) do
+ActiveRecord::Schema.define(version: 20170509071643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20170506164711) do
     t.index ["slug"], name: "index_articles_on_slug", unique: true
     t.index ["topic_id"], name: "index_articles_on_topic_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body", default: "", null: false
+    t.integer "commentable_id"
+    t.string "commentable_type"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -50,6 +60,8 @@ ActiveRecord::Schema.define(version: 20170506164711) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -58,4 +70,5 @@ ActiveRecord::Schema.define(version: 20170506164711) do
 
   add_foreign_key "articles", "topics"
   add_foreign_key "articles", "users"
+  add_foreign_key "comments", "users"
 end

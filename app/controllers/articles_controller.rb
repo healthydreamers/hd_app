@@ -1,6 +1,22 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id          :integer          not null, primary key
+#  title       :string           default(""), not null
+#  description :text             default(""), not null
+#  url         :string           default("")
+#  source_host :string           default("")
+#  slug        :string
+#  topic_id    :integer
+#  user_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update]
-  #before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @articles = Article.all.order(created_at: :desc)
@@ -15,7 +31,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
     if @article.save
       redirect_to @article
     else

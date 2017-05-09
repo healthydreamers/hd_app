@@ -14,11 +14,11 @@
 //= require turbolinks
 //= require_tree .
 
-// replace #ticker_url with whatever your input element is called
+
 $("#article_url").keyup(function() {
   $.ajax({
 		type: "POST",
-		url: "/articles/url_lookup/",
+		url: "/articles/url_lookup",
 		data: {url: $('#article_url').val()},
 		dataType: 'json',
 		success: function(data) {

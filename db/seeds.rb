@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(email: 'ismail@unik.ma', password: 'aqwzsxedc', password_confirmation: 'aqwzsxedc')
-User.create(email: 'ismail@werunik.com', password: 'aqwzsxedc', password_confirmation: 'aqwzsxedc')
+User.create(email: 'ismail@unik.ma', password: 'aqwzsx', password_confirmation: 'aqwzsx', first_name: 'Ismail', last_name: 'Mechbal')
+User.create(email: 'ismail@werunik.com', password: 'aqwzsxedc', password_confirmation: 'aqwzsxedc', first_name: 'Wer', last_name: 'Unik')
 topics = Topic.create([
 	{ name: 'Healthy', slogan: 'There’s just nothing like being healthy!' },
 	{ name: 'Wealthy', slogan: 'There’s just nothing like being Wealthy!' },
