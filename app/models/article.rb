@@ -20,6 +20,8 @@ class Article < ApplicationRecord
   has_many :comments, as: :commentable
   validates :title, :description, presence: true
   
+  acts_as_votable
+  
   extend FriendlyId
 	friendly_id :title, use: :slugged
 

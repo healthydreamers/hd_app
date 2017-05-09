@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
-  root to: "dashboard#index"
+  root to: "topics#index"
   
-  resources :topics, only: [:show]
+  resources :topics, only: [:index, :show]
   
-  resources :articles, except: [:edit, :update, :destroy] do
+  resources :articles, except: [:index, :edit, :update, :destroy] do
     collection do
     	post '/url_lookup', to: 'articles#url_lookup', as: :url_lookup
     end
     member do
-      #put "like",    to: "posts#upvote"
-      #put "dislike", to: "posts#downvote"
+      put "like", to: "articles#upvote"
     end
     resources :comments, module: :articles
   end

@@ -1,0 +1,19 @@
+<main class="pt6 mw7 center">
+  <% @topics.each do |topic| %>
+    <h4 class="f6 f5-ns fw6 lh-title black mt4"><%= link_to topic.name, topic %></h4>
+    <% topic.articles.each do |article| %>
+    <article>
+      <%= link_to article_path(article), class: "link dt w-100 bb b--black-10 pb2 mt2 dim blue" do %>
+        <h1 class="f6 f5-ns fw6 lh-title black mv0"><%= article.title %></h1>
+        <time datetime="<%= article.created_at %>"class="f6 fw4 mt2 mb0 black-60">
+          Added <%= time_ago_in_words article.created_at %>
+        </time>
+        <%=link_to like_article_path(article), method: :put, class: 'btn btn-default btn-sm' do %>
+          <span class="glyphicon glyphicon-chevron-up"></span>
+          like <%= article.get_upvotes.size %>
+        <% end %>
+      <% end %>
+    </article>
+    <% end %>
+  <% end %>
+</main>

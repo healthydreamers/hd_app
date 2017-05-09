@@ -15,13 +15,8 @@
 #
 
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update]
-  before_action :authenticate_user!, except: [:index, :show]
-
-  def index
-    @articles = Article.all.order(created_at: :desc)
-    @articles_per_topic = @articles.group_by { |t| t.topic.name }
-  end
+  before_action :set_article, only: [:show, :edit, :update, :upvote]
+  before_action :authenticate_user!, except: [:show]
 
   def show
   end
@@ -50,6 +45,11 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def upvote
+   @article.upvote_by current_user
+   redirect_back fallback_location: root_path, notice: "Voted successfully"
+  end
+  
   private
 
   def set_article
