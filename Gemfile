@@ -29,6 +29,7 @@ gem 'metainspector'
 gem 'sidekiq'
 gem 'sidekiq-statistic'
 gem 'sidekiq-status'
+gem 'slack-notifier'
 gem 'trix'
 #gem 'simple_form'
 gem 'simple_form', github: 'elsurudo/simple_form', branch: 'rails-5.1.0'
@@ -49,6 +50,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

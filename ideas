@@ -13,9 +13,27 @@ Topic -> "Fasting"
 
 
 TODO
-Add Tags to articles
-Follow
+Show disabled link to votes and rediret to login when guest
 Fix redirection to previous page
+If description exist, do not parse
+Add rubocop
+Add cache
+Add user profile
+	Show published articles
+	show unpublished articles
+
+Sidekiq
+	sidekiq unique jobs
+pagination
+Backup
+rails 12factor
+
+Post launch features
+	Add Tags to articles
+	User profile page
+	Follow
+		topic
+		user
 
 
 isnpiration
@@ -23,6 +41,7 @@ https://coderwall.com/
 https://www.producthunt.com/topics/books
 https://growthhackers.com/posts?type=All
 https://inbound.org/article/15-proven-methods-for-increasing-organic-traffic-in-2017#comments
+https://hashnode.com/
 
 
 commments

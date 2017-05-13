@@ -15,19 +15,33 @@
 #
 
 class Article < ApplicationRecord
+  acts_as_votable  
+
+  after_commit :set_og_values, on: :create
+  #after_commit :slack_notification, on: :create
+
   belongs_to :topic
   belongs_to :user
   has_many :comments, as: :commentable
-  validates :title, :description, presence: true
+
+  validates :url, presence: true
   
-  acts_as_votable
   
   extend FriendlyId
 	friendly_id :title, use: :slugged
 
+
+  def set_og_values
+    Posts::ArticleCrawlerWorker.perform_in(1.minutes, id)
+  end
+
+  def slack_notification
+    Notifications::ArticleNotificationWorker.perform_in(1.minutes, friendly_id)
+  end
+
 	private
 
-	def should_generate_new_friendly_id?
+  def should_generate_new_friendly_id?
   	slug.nil? || title_changed?
 	end
 

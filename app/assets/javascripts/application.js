@@ -15,16 +15,16 @@
 //= require_tree .
 
 
-$("#article_url").keyup(function() {
-  $.ajax({
-		type: "POST",
-		url: "/articles/url_lookup",
-		data: {url: $('#article_url').val()},
-		dataType: 'json',
-		success: function(data) {
-			$('#article_title').val(data[0].title)
-			$('#article_description').val(data[0].description)
-			$('#article_source_host').val(data[0].source_host)
-    }
-  });
-});
+// $("#article_url").keyup(function() {
+//   $.ajax({
+// 		type: "POST",
+// 		url: "/articles/url_lookup",
+// 		data: {url: $('#article_url').val()},
+// 		dataType: 'json',
+// 		success: function(data) {
+// 			$('#article_title').val(data[0].title)
+// 			$('#article_description').val(data[0].description)
+// 			$('#article_source_host').val(data[0].source_host)
+//     }
+//   });
+// });

@@ -13,11 +13,11 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.includes(:articles)
+    @topics = Topic.published_articles
   end
 
   def show
-    @topic = Topic.friendly.find(params[:id])
+    @topic = Topic.published_articles.friendly.find(params[:id])
     @articles = @topic.articles
   end
 

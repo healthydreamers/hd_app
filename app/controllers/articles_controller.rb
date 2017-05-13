@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.new(article_params)
     if @article.save
-      redirect_to @article
+      redirect_to root_path
     else
       render 'new'
     end
@@ -46,8 +46,8 @@ class ArticlesController < ApplicationController
   end
 
   def upvote
-   @article.upvote_by current_user
-   redirect_back fallback_location: root_path, notice: "Voted successfully"
+    @article.upvote_by current_user
+    redirect_back fallback_location: root_path, notice: "Voted successfully"
   end
   
   private

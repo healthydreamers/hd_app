@@ -5,7 +5,7 @@ staging:
 production:
   :concurrency: 20
 :queues:
-  - [AdministrationMailer, 2]
-  - [newsletter, 1]
+  - [crawler, 5]
   - [mailer, 3]
   - [analytics, 2]
+  - [notifications, 1]

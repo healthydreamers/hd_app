@@ -1,6 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+
+  config.after_initialize do
+    # Enable bullet in your application to detect n+1 queries
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.add_footer = true
+    Bullet.slack = { webhook_url: 'https://hooks.slack.com/services/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', channel: '#logs', username: 'notifier' }
+  end
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

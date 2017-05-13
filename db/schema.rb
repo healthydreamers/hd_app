@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20170509112640) do
     t.text "description", default: "", null: false
     t.string "url", default: ""
     t.string "source_host", default: ""
+    t.string "image_url", default: ""
     t.string "slug"
+    t.boolean "is_published", default: false, null: false
+    t.boolean "is_featured", default: false, null: false
     t.bigint "topic_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

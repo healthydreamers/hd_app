@@ -1,8 +1,6 @@
 <%= simple_form_for(@article) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :title %>
   <%= f.input :url %>
-  <%= f.input :source_host %>
   <%= f.input :description, as: :text %>
   <%= f.association :topic %>
   <%= f.button :submit %>

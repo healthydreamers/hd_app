@@ -12,6 +12,8 @@
 
 class Topic < ApplicationRecord
 	has_many :articles
+	
+	scope 	 :published_articles, -> { includes(:articles).where(articles: { is_published: true}) }
 
 	extend FriendlyId
 	friendly_id :name, use: :slugged
