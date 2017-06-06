@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   app:
-    container_name: app
+    container_name: hd_app
     build: .
     command: bash -c 'foreman start -f Procfile.dev'
     ports:

@@ -1,0 +1,13 @@
+$brand: #da552f;
+
+.brand              	{ color: $brand; }
+
+// Background
+.bg-brand           	{ background-color: $brand; }
+
+// Hover background
+.hover-bg-brand:hover,
+.hover-bg-brand:focus	{ background-color: lighten($brand, 10%); }
+
+// Border Colors
+.b--brand    					{ border-color: $brand; }

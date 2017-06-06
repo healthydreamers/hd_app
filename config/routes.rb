@@ -16,4 +16,10 @@ Rails.application.routes.draw do
     end
     resources :comments, module: :articles
   end
+
+  namespace :profile, path: '/profile' do
+    # Dashboard
+    resources :dashboard, only: [:index], path: 'me'
+  end
+
 end

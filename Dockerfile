@@ -14,7 +14,7 @@ ENV APP_HOME /webapps/app
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 
-ADD ./Gemfile* $APP_HOME/
+ADD Gemfile* $APP_HOME/
 RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc
 RUN bundle install
 

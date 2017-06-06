@@ -1,0 +1,20 @@
+<main class="pt6 mw7 center">
+  <h4>Hey <%= @user.name %></h4>
+  <% if @articles_count == 0 %>
+    <h4>You have <%= @articles_count %> articles</h4>
+    <h4><%= link_to "Submit a new article", new_article_path %></h4>
+  <% else %>
+    <h3>Published articles</h3>
+    <% @published_articles.each do |article| %>
+      <h4 class="f6 f5-ns fw6 lh-title black mt4">
+        <%= article.id %>, published:<%= article.is_published %>
+      </h4>
+    <% end %>
+    <h3>Unpublished articles</h3>
+    <% @unpublished_articles.each do |article| %>
+      <h4 class="f6 f5-ns fw6 lh-title black mt4">
+        <%= article.id %>, published:<%= article.is_published %>
+      </h4>
+    <% end %>
+  <% end %>
+</main>

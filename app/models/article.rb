@@ -26,7 +26,9 @@ class Article < ApplicationRecord
 
   validates :url, presence: true
   
-  
+  scope    :published,    -> { where(articles: { is_published: true }) }
+  scope    :unpublished,  -> { where(articles: { is_published: false }) }
+
   extend FriendlyId
 	friendly_id :title, use: :slugged
 
@@ -37,6 +39,10 @@ class Article < ApplicationRecord
 
   def slack_notification
     Notifications::ArticleNotificationWorker.perform_in(1.minutes, friendly_id)
+  end
+
+  def count_user_articles
+    "User.articles.count"
   end
 
 	private
