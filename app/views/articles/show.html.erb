@@ -1,25 +1,34 @@
-<%= render partial: "votes/vote", locals: {article: @article} %>
-
-<article class="baskerville pt6 pb5">
-  <header class="avenir tc-l ph3 ph4-ns pt4 pt5-ns">
-    <h1 class="f3 f2-m f-subheadline-l measure lh-title fw1 mt0"><%= @article.title %></h1>
-    <time datetime="<%= @article.created_at %>"class="f5 f4-l db fw1 baskerville mb4">
-      Added <%= time_ago_in_words @article.created_at %>
-    </time>
+<article class="bg-white pa3 mb3 ba b--light-gray">
+  <header class="pa3 mb3">
+    <h1 class="f6 f5-ns fw6 lh-title black mv0"><%= @article.title %></h1>
+    <ul class="pa0 f6 fw4">
+        <li class="dib">
+          Shared by <%= @article.user.name %>
+        </li>
+        <li class="dib"> -
+          <time datetime="<%= @article.created_at %>">
+            On <%= @article.created_at.strftime("%B %d, %Y") %>
+          </time>
+      </li> 
+    </ul>
   </header>
-  <div class="ph3 ph4-m ph5-l">
-    <div class="measure db center f5 f4-ns lh-copy">
-      <p><%=h raw @article.description %></p>
-      <hr>
-      <h4 class="f6 ttu tracked gray link pointer dim">
-        Source: <%= link_to @article.source_host, @article.url %>
-      </h4>
-    </div>
+  <div class="measure db center f5 f4-ns lh-copy">
+    <p><%=h raw @article.description %></p>
+    <h4 class="f6 tc mv6">
+      <%= link_to "Read full post", @article.url, class: "link pointer white bg-orange pa2 br2 hover-bg-light-red" %>
+    </h4>
+  </div>
+  <div>
+    <%= render partial: "votes/vote", locals: {article: @article} %>
   </div>
 </article>
-<%= render partial: "comments/comments", locals: {commentable: @article} %>
+<div id="comment">
+  <%= render partial: "comments/comments", locals: {commentable: @article} %>
+</div>
+<div class="bg-near-white pa3 mb3 ba b--light-gray">
 <% if user_signed_in? %>
   <%= render partial: "comments/form", locals: {commentable: @article} %>
 <% else %>
   You need to <%= link_to "log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to comment.
 <% end %>
+</div>

@@ -1,4 +1,6 @@
-<h4>Comments: <%= @article.cached_comments_count %></h4>
+<h4>Comments (<%= @article.cached_comments_count %>)</h4>
 <% commentable.comments.each do |comment| %>
-  <h5><%= comment.body %></h5>
+  <div class="bg-white pa3 mb3 ba b--light-gray">
+  	<h5><%= comment.body %></h5>
+  </div>
 <% end %>

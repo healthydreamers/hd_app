@@ -30,7 +30,6 @@ gem 'sidekiq'
 gem 'sidekiq-statistic'
 gem 'sidekiq-status'
 gem 'slack-notifier'
-gem 'trix'
 #gem 'simple_form'
 gem 'simple_form', github: 'elsurudo/simple_form', branch: 'rails-5.1.0'
 

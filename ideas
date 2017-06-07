@@ -13,6 +13,7 @@ Topic -> "Fasting"
 
 
 TODO
+Add emoji https://github.com/github/gemoji
 Show disabled link to votes and rediret to login when guest
 Fix redirection to previous page
 If description exist, do not parse

@@ -1,11 +1,13 @@
 <% if user_signed_in? %>
   <% unless current_user.voted_for? article %>
 	  <%= link_to(like_article_path(article), method: :put) do %>
-	    like <%= article.get_upvotes.size %>
+	    <%= article.get_upvotes.size %> <%= "like".pluralize(article.get_upvotes.size) %>
 	  <% end %>
 	<% else %>
 	  Liked <%= article.get_upvotes.size %>
 	<% end %>
 <% else %>
-  <%= article.get_upvotes.size %> likes
+  <%= link_to(like_article_path(article), method: :put) do %>
+	  <%= article.get_upvotes.size %> <%= "like".pluralize(article.get_upvotes.size) %>
+	<% end %>
 <% end %>
