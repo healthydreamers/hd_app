@@ -29,6 +29,7 @@
 <% if user_signed_in? %>
   <%= render partial: "comments/form", locals: {commentable: @article} %>
 <% else %>
-  You need to <%= link_to "log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to comment.
+  You need to <%= link_to "Log in", new_user_session_path, class: "link pointer brand underline" %> or 
+  <%= link_to "Sign up", new_user_registration_path, class: "link pointer brand underline" %> to leave a comment.
 <% end %>
 </div>

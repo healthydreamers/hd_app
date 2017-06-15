@@ -1,0 +1,75 @@
+AsciiComments:
+  Enabled: false
+
+ParameterLists:
+  CountKeywordArgs: false
+
+Metrics/AbcSize:
+  Max: 18
+
+MethodLength:
+  CountComments: false
+  Max: 15
+
+LineLength:
+  Max: 160
+
+ClassLength:
+  Max: 150
+
+Style/Lambda:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+FormatString:
+  EnforcedStyle: percent
+
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Semicolon:
+  Exclude:
+    - spec/**/*
+
+Rails/Output:
+  Exclude:
+    - lib/**/*
+    - db/**/*
+
+Rails/TimeZone:
+  Exclude:
+    - lib/capistrano/**/*
+    - lib/rack/**/*
+    - lib/tasks/**/*
+
+AllCops:
+  TargetRubyVersion: 2.2
+  Exclude:
+    - ideas
+    - bin/*
+    - tmp/**/*
+    - vendor/**/*
+    - db/migrate/*
+    - db/schema.rb
+    - config/**/*
+    - Guardfile
+
+Rails:
+  Enabled: true

@@ -13,7 +13,10 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.published_articles
+    @topics = 	Topic.published_articles
+    @healthy = 	Topic.healthy_articles
+    @wealthy = 	Topic.wealthy_articles
+    @wise = 		Topic.wise_articles
   end
 
   def show

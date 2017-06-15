@@ -1,4 +1,5 @@
-<main class="pt6 mw7 center">
-  <strong><%= @topic.name %></strong>
-  <%= render @articles %>
-</main>
+<h4 class="f3 fw6 lh-title black ttu">
+  <%= @topic.name %>
+  <span class="gray f7"><%= @topic.slogan %></span>
+</h4>
+<%= render @articles %>

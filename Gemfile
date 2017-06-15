@@ -5,16 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.0'
+gem 'coffee-rails', '~> 4.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
+gem 'rails', '~> 5.1.0'
+gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
+gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
-gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
-gem 'redis', '~> 3.0'
-
 
 # Custom
 gem 'acts_as_commentable_with_threading'
@@ -30,7 +29,7 @@ gem 'sidekiq'
 gem 'sidekiq-statistic'
 gem 'sidekiq-status'
 gem 'slack-notifier'
-#gem 'simple_form'
+# gem 'simple_form'
 gem 'simple_form', github: 'elsurudo/simple_form', branch: 'rails-5.1.0'
 
 # Deploy

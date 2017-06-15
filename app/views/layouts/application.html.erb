@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HdApp</title>
+    <title>Healthy Dreamers</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://unpkg.com/tachyons/css/tachyons.min.css" rel="stylesheet">
   </head>
-  <body>
-  	<%= render partial: "partials/header/header" %>
+  <body class="ma0">
     <%= render partial: "partials/notice" %>
+  	<%= render partial: "partials/header/header" %>
     <main class="pa5 mw7 center">
       <%= yield %>
     </main>
     <%= render partial: "partials/footer/footer" %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

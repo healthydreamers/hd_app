@@ -13,7 +13,10 @@
 class Topic < ApplicationRecord
 	has_many :articles
 	
-	scope 	 :published_articles, -> { includes(:articles).where(articles: { is_published: true }) }
+	scope 	 :published_articles, 		-> { includes(:articles).where(articles: { is_published: true }) }
+	scope 	 :healthy_articles, 			-> { includes(:articles).where(topics: { name: "Healthy" }) }
+	scope 	 :wealthy_articles, 			-> { includes(:articles).where(topics: { name: "Wealthy" }) }
+	scope 	 :wise_articles, 					-> { includes(:articles).where(topics: { name: "Wise" }) }
 
 	extend FriendlyId
 	friendly_id :name, use: :slugged

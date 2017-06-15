@@ -1,14 +1,28 @@
-<main class="pt4 mw7 center">
-  <article>
-    <%= link_to article_path(article), class: "link dt w-100 bb b--black-10 pb2 mt2 dim blue" do %>
-      <h1 class="f6 f5-ns fw6 lh-title black mv0"><%= article.title %></h1>
-      <h4>Comments: <%= article.cached_comments_count %></h4>
-      <time datetime="<%= article.created_at %>"class="f6 fw4 mt2 mb0 black-60">
-        Added <%= time_ago_in_words article.created_at %>
+<article class="bg-white pa3 mb3 ba b--light-gray">
+  <%= link_to article_path(article), class: "link pointer dt pb2 mt2 dim" do %>
+    <h1 class="f6 f5-ns fw6 lh-title black mv0"><%= article.title %></h1>
+  <% end %>
+  <p class="f6 fw3 lh-title gray">
+    <%= h truncate(article.description, :length => 250) %>
+    <%= link_to "Read more", article_path(article), class: "link pointer dim black fw5" %>
+  </p>
+  <ul class="pa0">
+    <li class="dib">
+      <time datetime="<%= article.created_at %>" class="f6 fw4 mt2 mb0 black-60">
+        On <%= article.created_at.strftime("%b %d") %>
       </time>
-      <div>
-        <%= render partial: "votes/vote", locals: {article: article} %>
-      </div>
-    <% end %>
-  </article>
-</main>
+    </li> - 
+    <li class="dib">
+      <% if article.cached_comments_count > 0 %>
+        <span class="br2 ph1 gray bg-lightest-blue">
+          <%= article.cached_comments_count %> <%= "comment".pluralize(article.cached_comments_count) %>
+        </span>
+      <% else %>
+        <%= link_to "Discuss", article_path(article, anchor: "comment"), class: "link pointer underline gray"%>
+      <% end %>
+    </li> - 
+    <li class="dib">
+      <%= render partial: "votes/vote", locals: {article: article} %>
+    </li>
+  </ul>
+</article>

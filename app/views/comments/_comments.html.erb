@@ -1,6 +1,18 @@
 <h4>Comments (<%= @article.cached_comments_count %>)</h4>
 <% commentable.comments.each do |comment| %>
   <div class="bg-white pa3 mb3 ba b--light-gray">
-  	<h5><%= comment.body %></h5>
+	  <ul class="pa0 f6 fw4">
+      <li class="dib">
+        <%= comment.user.name %>
+      </li>
+      <li class="dib"> -
+        <time datetime="<%= @article.created_at %>">
+          On <%= comment.created_at.strftime("%B %d, %Y") %>
+        </time>
+      </li> 
+    </ul>
+  	<p class="f5 f4-ns lh-copy">
+  		<%=h raw comment.body %>
+		</p>
   </div>
 <% end %>
