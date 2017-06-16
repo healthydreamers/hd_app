@@ -17,8 +17,13 @@
       <% end %>
     </div>
     <div class="fl w-60 tr f7 fw6 lh-copy">
-      <%= link_to "Log In", new_user_session_path, title:"Log In", class: "link ttu silver ba b--light-gray dib pv2 ph2 ph3-ns br2 hover-bg-light-gray hover-white" %>
-      <%= link_to "Sign Up", new_user_registration_path, title:"Log In", class: "link ttu white bg-brand dib pv2 ph2 ph3-ns br2 hover-bg-brand" %>
+      <% if user_signed_in? %>
+        <%= link_to "Profile", profile_dashboard_index_path, title:"Profile", class: "link ttu white bg-brand dib pv2 ph2 ph3-ns br2 hover-bg-brand" %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, title:"Log out", class: "link ttu silver ba b--light-gray dib pv2 ph2 ph3-ns br2 hover-bg-light-gray hover-white" %>
+      <% else %>
+        <%= link_to "Log In", new_user_session_path, title:"Log In", class: "link ttu silver ba b--light-gray dib pv2 ph2 ph3-ns br2 hover-bg-light-gray hover-white" %>
+        <%= link_to "Sign Up", new_user_registration_path, title:"Log In", class: "link ttu white bg-brand dib pv2 ph2 ph3-ns br2 hover-bg-brand" %>
+      <% end %>
     </div>
   </nav>
 </header>

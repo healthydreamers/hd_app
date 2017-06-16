@@ -1,4 +1,4 @@
-<main class="pt6 mw7 center">
+<main class="bg-white pa3 mb3 ba b--light-gray">
   <h4>Hey <%= @user.name %></h4>
   <% if @articles_count == 0 %>
     <h4>You have <%= @articles_count %> articles</h4>
@@ -7,14 +7,35 @@
     <h3>Published articles</h3>
     <% @published_articles.each do |article| %>
       <h4 class="f6 f5-ns fw6 lh-title black mt4">
-        <%= article.id %>, published:<%= article.is_published %>
+        <%= link_to article do %>
+          <%= article.id %> - <%= article.title %>
+        <% end %>
       </h4>
+      <ul class="pa0">
+        <li class="dib">
+          <time datetime="<%= article.created_at %>" class="f6 fw4 mt2 mb0 black-60">
+            On <%= article.created_at.strftime("%b %d") %>
+          </time>
+        </li> - 
+        <li class="dib">
+          <% if article.cached_comments_count > 0 %>
+            <span class="br2 ph1 gray bg-lightest-blue">
+              <%= article.cached_comments_count %> <%= "comment".pluralize(article.cached_comments_count) %>
+            </span>
+          <% else %>
+            <%= article.cached_comments_count %> comment
+          <% end %>
+        </li>
+      </ul>
     <% end %>
     <h3>Unpublished articles</h3>
     <% @unpublished_articles.each do |article| %>
       <h4 class="f6 f5-ns fw6 lh-title black mt4">
-        <%= article.id %>, published:<%= article.is_published %>
+        <%= link_to article do %>
+          <%= article.id %> - <%= article.title %>
+        <% end %>
       </h4>
     <% end %>
+    <h4><%= link_to "Submit a new article", new_article_path %></h4>
   <% end %>
 </main>
