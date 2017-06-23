@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/capistrano/rbenv.git
-  revision: 65db3295752d079bf8cf874dab36b16ab45454b7
-  specs:
-    capistrano-rbenv (2.1.1)
-      capistrano (~> 3.1)
-      sshkit (~> 1.3)
-
-GIT
   remote: https://github.com/ctran/annotate_models.git
   revision: c952306966c9bae4438e4d40351561af3d8005c0
   specs:
@@ -82,7 +74,7 @@ GEM
     acts_as_votable (0.10.0)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    airbrussh (1.2.0)
+    airbrussh (1.3.0)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (8.0.0)
     awesome_nested_set (3.1.3)
@@ -94,19 +86,22 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
-    capistrano (3.6.1)
+    capistrano (3.8.2)
       airbrussh (>= 1.0.0)
-      capistrano-harrow
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-harrow (0.5.3)
-    capistrano-rails (1.1.8)
+    capistrano-passenger (0.2.0)
+      capistrano (~> 3.0)
+    capistrano-rails (1.3.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rbenv (2.1.1)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     capybara (2.13.0)
       addressable
       mime-types (>= 1.16)
@@ -153,7 +148,7 @@ GEM
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (0.8.1)
+    i18n (0.8.4)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -268,8 +263,6 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
-    trix (0.10.1)
-      rails
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
@@ -310,10 +303,11 @@ DEPENDENCIES
   annotate!
   bullet
   byebug
-  capistrano (~> 3.6.1)
+  capistrano (~> 3.7, >= 3.7.1)
   capistrano-bundler (~> 1.1.2)
-  capistrano-rails (~> 1.1.1)
-  capistrano-rbenv!
+  capistrano-passenger (~> 0.2.0)
+  capistrano-rails (~> 1.2)
+  capistrano-rbenv (~> 2.1)
   capybara (~> 2.13.0)
   coffee-rails (~> 4.2)
   devise!
@@ -336,7 +330,6 @@ DEPENDENCIES
   slack-notifier
   spring
   spring-watcher-listen (~> 2.0.0)
-  trix
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
