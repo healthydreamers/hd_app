@@ -244,6 +244,8 @@ GEM
       sidekiq (>= 3.3.4, < 5)
     sidekiq-status (0.6.0)
       sidekiq (>= 2.7)
+    sitemap_generator (5.3.1)
+      builder (~> 3.0)
     slack-notifier (2.1.0)
     spring (2.0.1)
       activesupport (>= 4.2)
@@ -327,6 +329,7 @@ DEPENDENCIES
   sidekiq-statistic
   sidekiq-status
   simple_form!
+  sitemap_generator
   slack-notifier
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -337,4 +340,4 @@ DEPENDENCIES
   webpacker
 
 BUNDLED WITH
-   1.14.6
+   1.15.0
