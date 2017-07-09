@@ -11,8 +11,10 @@
 <% end %>
 <% @wealthy.each do |wealthy| %>
   <h4 class="f3 fw6 lh-title black ttu">
-    <%= link_to wealthy.name, wealthy, class: "link pointer brand" %>
-    <span class="gray f7 ttl underline">View all</span>
+    <%= link_to wealthy, class: "link pointer dim brand" do %>
+      <%= wealthy.name %>
+      <span class="gray f7 ttl underline">View all</span>
+    <% end %>
   </h4>
   <% wealthy.articles.last(3).each do |article| %>
     <%= render article %>
@@ -20,8 +22,10 @@
 <% end %>
 <% @wise.each do |wise| %>
   <h4 class="f3 fw6 lh-title black ttu">
-    <%= link_to wise.name, wise, class: "link pointer brand" %>
-    <span class="gray f7 ttl underline">View all</span>
+    <%= link_to wise, class: "link pointer dim brand" do %>
+      <%= wise.name %>
+      <span class="gray f7 ttl underline">View all</span>
+    <% end %>
   </h4>
   <% wise.articles.last(3).each do |article| %>
     <%= render article %>
