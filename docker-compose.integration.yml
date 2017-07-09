@@ -1,0 +1,12 @@
+version: '2.1'
+services:
+  app:
+    container_name: hd_app
+    build: .
+    command: bash -c 'foreman start -f Procfile.dev'
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/webapps/app:rw
+    env_file:
+      - .env.dev
