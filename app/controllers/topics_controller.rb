@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.friendly.find(params[:id])
-    @articles = @topic.articles
+    @articles = @topic.articles.where(is_published: true)
   end
 
 end
