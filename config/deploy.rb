@@ -5,7 +5,7 @@ set :application, 'app'
 set :repo_url, 'git@github.com:healthydreamers/hd_app.git'
 set :deploy_to, '/home/deploy/apps/app'
 
-append :linked_files, 'config/database.yml', 'config/application.yml', 'config/secrets.yml'
+append :linked_files, 'config/database.yml', 'config/application.yml', 'config/secrets.yml', 'config/newrelic.yaml'
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/pictures public/system}
 
 set :keep_releases, 3
