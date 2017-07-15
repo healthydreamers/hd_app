@@ -18,6 +18,14 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :upvote]
   before_action :authenticate_user!, except: [:show]
 
+  def index
+    if params[:tag]
+      @articles = Article.tagged_with(params[:tag])
+    else
+      @articles = Article.all.where(is_published: true)
+    end
+  end
+
   def show
   end
 
@@ -57,7 +65,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :description, :url, :source_host, :topic_id, :user_id)
+    params.require(:article).permit(:title, :description, :url, :source_host, :topic_id, :user_id, :tag_list)
   end
 
 end

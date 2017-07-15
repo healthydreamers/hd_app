@@ -3,5 +3,6 @@
   <%= f.input :url %>
   <%= f.input :description, as: :text %>
   <%= f.association :topic %>
+	<%= f.text_field :tag_list, class: 'form-control' %>
   <%= f.button :submit %>
 <% end %>

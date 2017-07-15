@@ -15,7 +15,8 @@
 #
 
 class Article < ApplicationRecord
-  acts_as_votable  
+  acts_as_votable
+  acts_as_taggable
 
   after_commit :set_og_values, on: :create
   after_commit :slack_notification, on: :create

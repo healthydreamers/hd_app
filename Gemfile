@@ -17,6 +17,7 @@ gem 'webpacker'
 
 # Custom
 gem 'acts_as_commentable_with_threading'
+gem 'acts-as-taggable-on'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'annotate', github: 'ctran/annotate_models'
 gem 'devise', git: 'https://github.com/gogovan/devise.git', branch: 'rails-5.1'

@@ -6,11 +6,9 @@ Rails.application.routes.draw do
   root to: "topics#index"
   
   resources :topics, only: [:index, :show]
+  get 'tags/:tag', to: 'articles#index', as: :tag
   
   resources :articles, except: [:index, :edit, :update, :destroy] do
-    collection do
-    	#post '/url_lookup', to: 'articles#url_lookup', as: :url_lookup
-    end
     member do
       put "like", to: "articles#upvote"
     end
@@ -18,7 +16,6 @@ Rails.application.routes.draw do
   end
 
   namespace :profile, path: '/profile' do
-    # Dashboard
     resources :dashboard, only: [:index], path: 'me'
   end
 
