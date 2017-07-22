@@ -1,11 +1,21 @@
-<h1 class="f6 fw5 black mb4">Join a community of passionate human beings aiming for a Healthy, Wealthy & Wise life</h1>
+<h1 class="f4 fw6 black mb4">Join a community of Healthy, Wealthy & Wise passionates</h1>
+<h4 class="f3 fw6 ttu black pa0">Forgot your password?</h4>
 <article class="bg-white pa3 mb3 ba b--light-gray">
-  <h4 class="f7 fw6 ttu black pa0">Forgot your password?</h4>
-  <div class="measure db center f5 f4-ns lh-copy">
+  <div class="cf measure db center f5 f4-ns lh-copy">
 		<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  		<%= f.error_notification %>
-    	<%= f.input :email, required: true, autofocus: true %>
-    	<%= f.button :submit, "Send me reset password instructions", class: "link pointer white bg-orange pa2 b--none br2 hover-bg-light-red" %>
+      <%= render 'partials/errors', object: f.object %>
+    	<div class="fl w-100 pa2">
+        <label for="email" class="f6 fw6 black">E-mail</label>
+        <span class="f6 fw5 red"><%= f.object.email %> <%= f.object.errors[:email].first %></span>
+        <%= f.input_field :email, required: true, autofocus: true, label: false, class: "input-reset ba b--black-20 pa2 db w-100 f5 fw6" %>
+      </div>
+      <div class="fl w-100 pa2 mt3">
+        <%= f.button :submit, "Send me reset password instructions", class: "ph3 pv3 input-reset white bg-orange link pointer f5 fw6 dib b--none br2 hover-bg-light-red" %>
+      </div>
+      <div class="fl w-100 pa2">
+        <%= link_to "Already have an account? Login", new_session_path(resource_name), class: "f6 link dim black" %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "f6 link dim black db" %>
+      </div>
 		<% end %>
 	</div>
 </article>
