@@ -14,15 +14,10 @@
       </div>
       <div class="fl w-100 pa2">
         <%= link_to "Already have an account? Login", new_session_path(resource_name), class: "f6 link dim black" %>
-        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "f6 link dim black db" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "f6 link dim black db" %>
       </div>
 		<% end %>
 	</div>
 </article>
 
 <% render "devise/shared/links" %>
-
-<div class="bg-near-white pa3 ba b--light-gray">
-  Already have an account? <%= link_to "Login", new_session_path(resource_name), class: "link pointer brand underline pr3" %>
-  <%= link_to "Sign up", new_user_registration_path, class: "link pointer brand underline" %>
-</div>
