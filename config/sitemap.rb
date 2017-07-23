@@ -1,4 +1,4 @@
-SitemapGenerator::Sitemap.default_host = "https://healthydreamers.com"
+SitemapGenerator::Sitemap.default_host = "https://www.healthydreamers.com"
 
 SitemapGenerator::Sitemap.create do
   #add root_path, :changefreq => 'daily'

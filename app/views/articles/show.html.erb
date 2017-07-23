@@ -11,14 +11,15 @@
           </time>
       </li>
       <li class="dib"> - 
-        <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+        <% raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+        <%= raw @article.tag_list.map { |t| t }.join(', ') %>
       </li>
     </ul>
   </header>
   <div class="measure db center f5 f4-ns lh-copy">
     <p><%=h raw @article.description %></p>
     <h4 class="f6 tc mv6">
-      <%= link_to "Read full post", @article.url, class: "link pointer white bg-orange pa2 br2 hover-bg-light-red" %>
+      <a href="<%= @article.url %>?utm_source=healthydreamers&utm_medium=social" title="Read full post" target="_blank" class="link pointer white bg-orange pa2 br2 hover-bg-light-red">Read full post</a>
     </h4>
   </div>
   <div>

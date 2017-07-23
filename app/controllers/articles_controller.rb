@@ -27,6 +27,17 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    # SEO
+    @meta_title       = meta_title @article.title
+    @meta_description = @article.description
+    @canonical_url    = request.domain + "/articles/#{@article.slug}"
+    @og_properties    = {
+      title: @meta_title,
+      type:  'website',
+      description:  @meta_description,
+      image: view_context.image_url(@article.image_url),
+      url: @canonical_url
+    }
   end
 
   def new
