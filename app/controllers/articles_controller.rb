@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
     # SEO
     @meta_title       = meta_title @article.title
     @meta_description = @article.description
-    @canonical_url    = request.domain + "/articles/#{@article.slug}"
+    @canonical_url    = "https://www.healthydreamers.com/articles/#{@article.slug}"
     @og_properties    = {
       title: @meta_title,
       type:  'website',

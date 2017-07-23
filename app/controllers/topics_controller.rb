@@ -21,6 +21,15 @@ class TopicsController < ApplicationController
     # SEO
     @meta_title = meta_title ''
     @meta_description = 'Healthy Dreamers is a curation of articles & videos to help you follow a Healthy, Wealthy & Wise life.'
+    @canonical_url    = "https://www.healthydreamers.com/"
+    @og_properties    = {
+      title: "Healthy Dreamers",
+      type:  "website",
+      description:  @meta_description,
+      image: view_context.image_url("https://res.cloudinary.com/healthydreamers/image/upload/v1500672903/social/share.jpg"),
+      url: @canonical_url
+    }
+
   end
 
   def show
@@ -30,7 +39,7 @@ class TopicsController < ApplicationController
     # SEO
     @meta_title       = meta_title @topic.name
     @meta_description = @topic.slogan
-    @canonical_url    = request.domain + "/topics/#{@topic.slug}"
+    @canonical_url    = "https://www.healthydreamers.com/topics/#{@topic.slug}"
     @og_properties    = {
       title: @meta_title,
       type:  'website',
